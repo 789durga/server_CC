@@ -1,0 +1,39 @@
+{
+    "789durga@gmail.com": {
+        "username": "789durga@gmail.com",
+        "password": "974810",
+        "name": "durga Maddala",
+        "pid": [
+            4
+        ]
+    },
+    "raghuram32@rediffmail.com": {
+        "username": "raghuram32@rediffmail.com",
+        "password": "abcd",
+        "name": "raghuram maddala",
+        "pid": [
+            1,
+            2,
+            3,
+            5
+        ]
+    },
+    "Siddharth10@gmail.com": {
+        "username": "Siddharth10@gmail.com",
+        "password": "974810",
+        "name": "sid",
+        "pid": []
+    },
+    "789@gmail.com": {
+        "username": "789@gmail.com",
+        "password": "974810",
+        "name": "kln",
+        "pid": []
+    },
+    "7@gmail.com": {
+        "username": "7@gmail.com",
+        "password": "974810",
+        "name": "durga Maddala",
+        "pid": []
+    }
+}

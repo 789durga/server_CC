@@ -1,0 +1,20 @@
+{
+  "navbar": {
+    "logo": "https://images.news18.com/ibnlive/uploads/2017/05/Wipro-new-logo.jpg?impolicy=website&width=536&height=356",
+    "header": { "white": "hackathon", "primary": "projects" }
+  },
+  "leftSection": [
+    {
+      "icon": "fa fa-desktop",
+      "text": "Dashboard",
+      "link": "http://localhost:8080/dashboard",
+      "addUsername": true
+    },
+    {
+      "icon": "fa fa-th",
+      "text": "Add Project",
+      "link": "http://localhost:8080/addProject",
+      "addUsername": true
+    }
+  ]
+}

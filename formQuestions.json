@@ -1,0 +1,39 @@
+[
+  {
+    "question": "what is project Name",
+    "type": "text",
+    "name": "ProjectName",
+    "required": true
+  },
+  {
+    "question": "what is project start date",
+    "type": "date",
+    "name": "startdate",
+    "required": true
+  },
+  {
+    "question": "what is project validity",
+    "type": "text",
+    "name": "Validity",
+    "required": true
+  },
+  {
+    "question": "what is project type",
+    "type": "checkbox",
+    "selection": "single",
+    "name": "type",
+    "options": ["type1", "type2", "type3"]
+  },
+  {
+    "question": "dropdown",
+    "type": "select",
+    "name": "drop",
+    "options": ["one", "two", "three"]
+  },
+  {
+    "question": "Add project files",
+    "type": "file",
+    "name": "projectFile",
+    "multiple": true
+  }
+]

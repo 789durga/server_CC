@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>addProject</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <link rel="stylesheet" href="style.css">
+<style>.addProject div {
+  width: 95%;
+  height: 30%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px auto;
+  border: 1px solid rgb(194, 194, 194);
+}
+.addProject label {
+  width: 90%;
+  font-size: 100%;
+  /* font-weight: bold; */
+}
+.addProject input {
+  width: 90%;
+  font-size: 18px;
+  margin: 30px 5px 0px 5px;
+  border: none;
+}
+.addProject h1 {
+  font-size: 160%;
+}
+.question {
+  margin: 0px 30px 0px 0px;
+  width: 90%;
+  font-size: 50px;
+  font-weight: bold;
+}
+.addProject input[type="radio"],
+.addProject input[type="checkbox"] {
+  width: 3%;
+  font-size: 50%;
+  margin: 0px;
+  border: none;
+}
+
+.addProject input:focus {
+  outline: none;
+}
+
+.addProject form {
+  height: 50%;
+}
+
+.addProject input[type="submit"],
+.addProject input[type="reset"] {
+  width: 20%;
+  margin-left: 40%;
+  margin-bottom: 5%;
+}
+
+hr {
+  border: 0.5px solid #c2c2c2;
+}
+</style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <h1 class="text-center">Add Project</h1>
+
+    <div class="addProject">
+      <form action=<%= "http://localhost:8080/addProject/form/" + username%> method="post" enctype="multipart/form-data">
+          <% for(var i=0;i<format.length;i++) {%>
+            <div>
+                  <% if (format[i].type == "text" || format[i].type == "date" || format[i].type == "file" ) { %>
+                    <label for=<%= format[i].name %>> <h1><%= format[i].question %></h1>  </label>
+                  <input name=<%= format[i].name %> type=<%= format[i].type %>  multiple >
+                     
+                     <hr>
+                  <% } else if (format[i].type == "checkbox" || format[i].type == "radio") { %>
+                    <%  if (format[i].selection === "single") { %>
+                      <label for=<%= format[i].name %> class="question"> <h1><%= format[i].question %></h1>  </label><br>
+                      <% var array=format[i].options %> 
+                      <% for( let j = 0; j < array.length; j++ ) { %>                        
+                        <% var otpion = array[j] %>
+                        <input name=<%= format[i].name %> type="radio" value= <%= otpion %>>
+                        <label for=<%= format[i].name %>> <%= otpion %>  </label><br>
+                          
+                    <% } }else if (format[i].selection === 'multiple') { %>
+                      <label for=<%= format[i].name + "[]" %>> <h1><%= format[i].question %></h1>  </label>
+                      <% var array=format[i].options %> 
+                      <% for( let j = 0; j < format[i].options.length; j++ ) { %>                            
+                        <% var otpion = array[j] %>
+                        <input name=<%= format[i].name %> type="checkbox" value=<%= otpion %>>  
+                        <label for=<%= format[i].name %>> <%= otpion %>  </label><br>
+                            
+                  <% }} %>
+                            
+                  <% } else if (format[i].type === "select") { %>
+                    <label for=<%= format[i].name + "[]" %>> <h1><%= format[i].question %></h1>  </label>
+                    
+                    <select name=<%= format[i].name %> >
+                      <% for( let j = 0; j < format[i].options.length; j++ ) { %>
+                        <option value=<%= format[i].options[j] %>><%= format[i].options[j] %></option> 
+                      <% } %> 
+                    </select>
+                  <% }  %> 
+            </div>
+            <% } %> 
+        <div>
+          <p><%= message %> </p>
+          <input type="submit" placeholder="submit" class="btn btn-primary m-0" /> 
+          <input type="reset" placeholder="reset" class="btn btn-primary m-2"/>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
